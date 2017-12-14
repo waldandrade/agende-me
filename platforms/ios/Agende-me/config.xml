@@ -49,6 +49,13 @@
     <feature name="FileTransfer">
         <param name="ios-package" value="CDVFileTransfer" />
     </feature>
+    <feature name="CodePush">
+        <param name="ios-package" value="CodePush" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Zip">
+        <param name="ios-package" value="ZipPlugin" />
+    </feature>
     <name>Agende-me</name>
     <description>
         Controle sua agenda de recebíveis e saiba o quanto trabalhou
