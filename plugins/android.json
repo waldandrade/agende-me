@@ -36,6 +36,9 @@
     },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
     }
   },
   "dependent_plugins": {}
