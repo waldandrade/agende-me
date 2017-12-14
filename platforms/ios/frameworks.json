@@ -6,6 +6,6 @@
     "SafariServices.framework": 1,
     "Security.framework": 1,
     "SystemConfiguration.framework": 2,
-    "libz.dylib": 2,
+    "libz.dylib": 1,
     "CoreTelephony.framework": 1
 }
