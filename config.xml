@@ -42,8 +42,8 @@
         <icon height="80" platform="ios" src="www/res/icon/ios/Icon-App-40x40@2x.png" width="80" />
         <icon height="50" platform="ios" src="www/res/icon/ios/Icon-Small-50x50@1x.png" width="50" />
         <icon height="100" platform="ios" src="www/res/icon/ios/Icon-Small-50x50@2x.png" width="100" />
-        <icon height="60" platform="ios" src="www/res/icon/ios/Icon-App-60x60@1x.png.png" width="60" />
-        <icon height="120" platform="ios" src="www/res/icon/ios/Icon-App-60x60@2x.png.png" width="120" />
+        <icon height="60" platform="ios" src="www/res/icon/ios/Icon-App-60x60@1x.png" width="60" />
+        <icon height="120" platform="ios" src="www/res/icon/ios/Icon-App-60x60@2x.png" width="120" />
         <icon height="180" platform="ios" src="www/res/icon/ios/Icon-App-60x60@3x.png" width="180" />
         <icon height="72" platform="ios" src="www/res/icon/ios/Icon-App-72x72@1x.png" width="72" />
         <icon height="144" platform="ios" src="www/res/icon/ios/Icon-App-72x72@2x.png" width="144" />
@@ -129,4 +129,5 @@
     <plugin name="cordova-plugin-file" spec="^5.0.0" />
     <engine name="browser" spec="~5.0.1" />
     <engine name="android" spec="~6.3.0" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>
