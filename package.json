@@ -1,12 +1,12 @@
 {
-  "name": "com.optiapps.medtask",
+  "name": "com.optiapps.meditask",
   "version": "1.0.1",
   "displayName": "Agende-me",
   "cordova": {
     "platforms": [
-      "browser",
       "android",
-      "ios"
+      "ios",
+      "browser"
     ],
     "plugins": {
       "cordova-plugin-console": {},

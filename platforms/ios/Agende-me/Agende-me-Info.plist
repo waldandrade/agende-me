@@ -58,8 +58,6 @@
           <key>NSIncludesSubdomains</key>
           <true/>
         </dict>
-        <key>oauth.io</key>
-        <dict/>
         <key>accounts.google.com</key>
         <dict/>
       </dict>
