@@ -1,0 +1,51 @@
+<div flex="100" layout="column" ng-controller="SaveHospitalCtrl" ng-if="user.medico.pk">
+
+<md-toolbar flex="none" ng-style="{'background':'transparent'}" >
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button md-accent" aria-label="Settings" ng-click="showSideNav()">
+        <md-icon style="font-size: 20px;">menu</md-icon>
+      </md-button>
+      <span flex>Novo local</span>
+      <md-button class="md-icon-button md-accent" aria-label="Settings" ng-click="goto('hospitais')">
+        <md-icon style="font-size: 20px;">list</md-icon>
+      </md-button>
+    </div>
+</md-toolbar>
+<div flex="100" layout="column">
+  <md-content flex="auto" ng-cloak class="md-padding" layout="row" layout-align="center stretch" md-scroll-y>
+    <div flex-xs="100" flex-gt-xs="80" flex-gt-md="40">
+         <md-card>
+        <md-card-content>
+            <md-input-container  class="md-block">
+                <label>Nome</label>
+                <input name="nome" ng-model="hospital.nome" required md-maxlength="30">
+                <div ng-messages="hospitalForm.nome.$error">
+                  <div ng-message="required">Este campo é obrigatório!</div>
+                  <div ng-message="md-maxlength">Este campo deve possuir no máximo 30 letras!</div>
+                </div>
+            </md-input-container>
+            <div
+                name="bairro"
+                md-color-picker
+                label="Cor de Ref."
+                default="#f00"
+                multiple="true"
+                md-color-spectrum="false"
+                md-color-generic-palette="false"
+                md-color-material-palette="true"
+                md-color-sliders="false"
+                md-color-history="false"
+                md-color-alpha-channel="false"
+                md-color-hsl="false"
+                md-color-rgb="false"
+                ng-model="hospital.cor" required
+            ></div>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="start">
+            <md-button class="md-primary md-raised" ng-disabled="hospitalForm.$invalid" ng-click="salvarHospital(hospital)" >Salvar</md-button>
+            <md-button class="md-warn md-raised" ng-click="cancelar()">Cancelar</md-button>
+        </md-card-actions>
+    </md-card>
+    </div>
+  </md-content>
+</div>

@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Agenda Médica",
+  "short_name": "Agenda Médica",
+  "version": "com.optiapps.meditask",
+  "description": "A blank PhoneGap app.",
+  "author": "PhoneGap Team",
+  "icons": [],
+  "orientation": "portrait",
+  "start_url": "index.html"
+}

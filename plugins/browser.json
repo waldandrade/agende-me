@@ -1,0 +1,48 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "com.oauthio.plugins.oauthio": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-googleplus": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.optiapps.meditask"
+    }
+  },
+  "dependent_plugins": {}
+}

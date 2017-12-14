@@ -1,0 +1,57 @@
+<div flex="100" layout="column" ng-controller="ProcedimentosCtrl" ng-if="user.medico.pk">
+  <md-toolbar flex="none" ng-style="{'background':'transparent'}" >
+        <div class="md-toolbar-tools">
+          <md-button class="md-icon-button md-accent" aria-label="Settings" ng-click="showSideNav()">
+            <md-icon style="font-size: 20px;">menu</md-icon>
+          </md-button>
+          <span ng-if="!selectedProcedimento.pk" flex>Lista de Procedimentos</span>
+          <span ng-if="selectedProcedimento.pk" flex>Editar procedimento</span>
+          <md-button class="md-icon-button md-accent" ng-if="selectedProcedimento.pk" aria-label="Settings" ng-click="select()">
+            <md-icon style="font-size: 20px;">list</md-icon>
+          </md-button>
+        </div>
+    </md-toolbar>
+        <md-content flex="auto" ng-cloak class="md-padding" layout="row" layout-align="center stretch" md-scroll-y  ng-if="selectedProcedimento.pk">
+            <form name="ProcedimentoForm" class="ProcedimentoForm" layout="column" ng-submit="salvarProcedimento(selectedProcedimento)">
+                <md-card class="padded" md-whiteframe="{{height}}" flex="100" layout="column"
+                  ng-init="height = 3" ng-mouseenter="height = 6" ng-mouseleave="height = 3" >
+                        <md-card-title ng-style="{'max-height':'100px'}">
+                          <md-card-title-text>
+                                <md-input-container  class="md-block">
+                                    <input name="nome" ng-model="selectedProcedimento.nome" class="md-headline" md-maxlength="50" >
+                                </md-input-container>
+                          </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content layout="column" >
+                              <md-input-container  class="md-block">
+                                  <input name="nome" ng-model="selectedProcedimento.descricao" class="md-headline" md-maxlength="50" >
+                              </md-input-container>
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end center" ng-if="ProcedimentoForm.$dirty">
+                          <md-button class="md-primary  md-raised" ng-disabled="ProcedimentoForm.$invalid" ng-click="salvarProcedimento(selectedProcedimento)" >Salvar</md-button>
+                           <md-button class="md-warn  md-raised" ng-click="cancelar()">Cancelar</md-button>
+                        </md-card-actions>
+                        <md-card-actions layout="row" layout-align="end center" ng-if="!ProcedimentoForm.$dirty">
+                           <md-button class="md-warn  md-raised" ng-click="excluirProcedimento(selectedProcedimento)">Excluir</md-button>
+                        </md-card-actions>
+                </md-card>
+            </form>
+        </md-content>
+        <md-content flex="auto" ng-cloak class="md-padding" layout="row"  layout-align="start start" layout-wrap  md-scroll-y ng-if="!selectedProcedimento.pk">
+            <div flex-xs="100" flex-gt-xs="50" flex-gt-sm="25" layout="column" ng-repeat="procedimento in procedimentos">
+                <md-card ng-click="select(procedimento);" style="cursor: pointer;"  >
+                    <md-card-header style="padding-bottom: 5px;min-height: 30px;">
+                        <md-card-header-text>
+                            <h4>{{procedimento.nome  |  limitTo:25}}</h4>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <md-card-content>
+                      <span>{{procedimento.descricao}}</span>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-content>
+        <md-button class="md-fab md-fab-bottom-right md-accent md-hue-3 docs-scroll-fab" ng-if="!selectedProcedimento.pk" docs-scroll-class="scrolling" aria-label="Eat cake" ng-click="goto('novoProcedimento')">
+          <md-icon><i class="material-icons">add</i></md-icon>
+        </md-button>
+</div>

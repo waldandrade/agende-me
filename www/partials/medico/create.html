@@ -1,0 +1,40 @@
+<div layout-padding flex="100" ng-controller="MedicoCtrl" ng-cloak>
+    <md-card>
+<!--         <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out"/>
+ -->    <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Complete seu cadastro</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <md-input-container  class="md-block">
+                <label>Nome</label>
+                <input name="nome" ng-model="medico.nome" md-maxlength="50"  tabindex="1">
+            </md-input-container>
+
+            <md-input-container  class="md-block">
+                <label>Especialidade</label>
+                <input name="nome" ng-model="medico.especialidade" md-maxlength="30"  tabindex="2">
+            </md-input-container>
+
+            <md-input-container  class="md-block">
+                <label>CPF</label>
+                <input name="nome" ng-model="medico.cpf" md-maxlength="30"  tabindex="3">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+              <md-icon><i class="material-icons">&#xE0CD;</i></md-icon>
+              <input  ng-model="medico.telefone"  ng-required="true" type="text" placeholder="tel:(99)9999-9999"  mask='(99)9?9999-9999' ng-pattern="/^\(\d{2}\)\d{4,5}-\d{4}$/" tabindex="4">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Endereco</label>
+                <textarea ng-model="medico.endereco" md-maxlength="150" rows="3" md-select-on-focus  tabindex="5"></textarea>
+            </md-input-container>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="start">
+        <md-button class="md-primary md-raised" ng-disabled="medicoForm.$invalid" ng-click="salvarMedico(medico)"  tabindex="6">Salvar</md-button>
+        <md-button class="md-warn md-raised" ng-click="cancelar()"  tabindex="7">Cancelar</md-button>
+        </md-card-actions>
+    </md-card>
+</div>

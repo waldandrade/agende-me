@@ -1,0 +1,99 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/oauth-io/oauth-phonegap",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/oauth-io/oauth-phonegap",
+        "spec": "git+https://github.com/oauth-io/oauth-phonegap.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:oauth-io/oauth-phonegap.git",
+          "sshUrl": "git+ssh://git@github.com/oauth-io/oauth-phonegap.git",
+          "httpsUrl": "git+https://github.com/oauth-io/oauth-phonegap.git",
+          "gitUrl": "git://github.com/oauth-io/oauth-phonegap.git",
+          "shortcut": "github:oauth-io/oauth-phonegap",
+          "directUrl": "https://raw.githubusercontent.com/oauth-io/oauth-phonegap/master/package.json"
+        }
+      },
+      "C:\\Projects\\phonegap\\medtask\\Agenda Médica"
+    ]
+  ],
+  "_from": "git+https://github.com/oauth-io/oauth-phonegap.git",
+  "_id": "oauth-phonegap@0.5.0",
+  "_inCache": true,
+  "_location": "/oauth-phonegap",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/oauth-io/oauth-phonegap",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/oauth-io/oauth-phonegap",
+    "spec": "git+https://github.com/oauth-io/oauth-phonegap.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:oauth-io/oauth-phonegap.git",
+      "sshUrl": "git+ssh://git@github.com/oauth-io/oauth-phonegap.git",
+      "httpsUrl": "git+https://github.com/oauth-io/oauth-phonegap.git",
+      "gitUrl": "git://github.com/oauth-io/oauth-phonegap.git",
+      "shortcut": "github:oauth-io/oauth-phonegap",
+      "directUrl": "https://raw.githubusercontent.com/oauth-io/oauth-phonegap/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/oauth-io/oauth-phonegap.git#125b3c536ba5a67f37fff76bba06c690ff567325",
+  "_shasum": "67c0c735384766746c9672fb57b3c539beda5dbe",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/oauth-io/oauth-phonegap",
+  "_where": "C:\\Projects\\phonegap\\medtask\\Agenda Médica",
+  "author": {
+    "name": "oauth.io"
+  },
+  "bugs": {
+    "url": "https://github.com/oauth-io/oauth-phonegap/issues"
+  },
+  "dependencies": {},
+  "description": "OAuth that just works",
+  "devDependencies": {
+    "browserify": "~11.2.0",
+    "envify": "~3.4.0",
+    "grunt": "~0.4.5",
+    "grunt-browserify": "~4.0.1",
+    "grunt-concurrent": "~2.0.3",
+    "grunt-contrib-coffee": "~0.13.0",
+    "grunt-contrib-uglify": "~0.9.2",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-jasmine-node": "~0.2.1",
+    "istanbul": "~0.2.7",
+    "jasmine-node": "~2.0.x",
+    "rewire": "~2.0.0",
+    "temporary": "0.0.8"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "gitHead": "125b3c536ba5a67f37fff76bba06c690ff567325",
+  "homepage": "https://github.com/oauth-io/oauth-phonegap#readme",
+  "license": "Apache-2.0",
+  "main": "dist/oauth.min.js",
+  "name": "oauth-phonegap",
+  "optionalDependencies": {},
+  "readme": "OAuth.io Cordova/Phonegap SDK\r\n=======================\r\n\r\nThis is the Cordova/Phonegap SDK for [OAuth.io](https://oauth.io). OAuth.io allows you to integrate **100+ providers** really easily in your web app, without worrying about each provider's OAuth specific implementation.\r\n\r\nInstallation\r\n============\r\n\r\n* This plugin is supported on PhoneGap (Cordova) v3.0.0 and above.\r\n\r\nOAuth.io Requirements and Set-Up\r\n--------------------------------\r\n\r\nTo use this plugin you will need to make sure you've registered your OAuth.io app and have a public key (please check https://oauth.io/docs).\r\n\r\nGetting the SDK\r\n---------------\r\n\r\nRun the following command in your project directory. If you are using Phonegap, use the `phonegap` command. If you are using Cordova, use the `cordova` command.\r\n\r\n```sh\r\n$ cordova plugin add https://github.com/oauth-io/oauth-phonegap\r\n```\r\n\r\nWhitelisting API URLs\r\n---------------------\r\n\r\nOAuth.io will try to access various URLs, and their domains must be whitelisted in your `config.xml` in the `<access />` tag's `origin` attribute :\r\n\r\n```xml\r\n<?xml version='1.0' encoding='utf-8'?>\r\n<widget id=\"com.example.myapp\" version=\"0.0.1\" xmlns=\"http://www.w3.org/ns/widgets\" xmlns:cdv=\"http://cordova.apache.org/ns/1.0\">\r\n    <!-- ... -->\r\n    <access origin=\"URL\" />\r\n    <!-- ... -->\r\n</widget>\r\n```\r\n\r\n\r\nYou can either add each domain separately, depending on the providers you use:\r\n\r\n* graph.facebook.com\r\n* api.twitter.com\r\n* github.com\r\n* ...\r\n\r\nOr you can allow all domains with `*` like this :\r\n\r\n```xml\r\n<access origin=\"*\" />\r\n```\r\n\r\n\r\nIntegrating in your project\r\n---------------------------\r\n\r\nThe `OAuth` object is automatically added to `window` when you include the plugin, so you don't need to add it yourself.\r\n\r\nIn your JavaScript, add this line to initialize OAuth.js. You can get the public key of your app from your [OAuth.io dashboard](https://oauth.io/dashboard/apps).\r\n\r\n```javascript\r\nOAuth.initialize('your_app_public_key');\r\n```\r\n\r\nUsage\r\n=====\r\n\r\nTo connect your user using facebook (as an example):\r\n\r\n ```javascript\r\n//Using popup (option 1)\r\nOAuth.popup('facebook')\r\n.done(function(result) {\r\n  //use result.access_token in your API request \r\n  //or use result.get|post|put|del|patch|me methods (see below)\r\n})\r\n.fail(function (err) {\r\n  //handle error with err\r\n});\r\n ```\r\n\r\nUsing the cache\r\n---------------\r\n\r\nAs of version `0.2.0`, you can use the cache feature. This prevents the user from having to log in to the provider through a popup everytime he wants to access the app.\r\n\r\nTo use the cache, pass an options object to your popup method like this :\r\n\r\n```javascript\r\nOAuth.popup('facebook', {\r\n    cache: true\r\n})\r\n.done(function(result) {\r\n  //use result.access_token in your API request \r\n  //or use result.get|post|put|del|patch|me methods (see below)\r\n})\r\n.fail(function (err) {\r\n  //handle error with err\r\n});\r\n```\r\n\r\nThat way, your user will have to login to the provider only if the request token has not been retrieved yet or has expired.\r\n\r\nMaking requests\r\n---------------\r\n\r\nYou can make requests to the provider's API manually with the access token you got from the `popup` or `callback` methods, or use the request methods stored in the `result` object.\r\n\r\n**GET Request**\r\n\r\nTo make a GET request, you have to call the `result.get` method like this :\r\n\r\n```javascript\r\n//Let's say the /me endpoint on the provider API returns a JSON object\r\n//with the field \"name\" containing the name \"John Doe\"\r\nOAuth.popup(provider)\r\n.done(function(result) {\r\n    result.get('/me')\r\n    .done(function (response) {\r\n        //this will display \"John Doe\" in the console\r\n        console.log(response.name);\r\n    })\r\n    .fail(function (err) {\r\n        //handle error with err\r\n    });\r\n})\r\n.fail(function (err) {\r\n    //handle error with err\r\n});\r\n```\r\n\r\n**POST Request**\r\n\r\nTo make a POST request, you have to call the `result.post` method like this :\r\n\r\n```javascript\r\n//Let's say the /message endpoint on the provider waits for\r\n//a POST request containing the fields \"user_id\" and \"content\"\r\n//and returns the field \"id\" containing the id of the sent message \r\nOAuth.popup(provider)\r\n.done(function(result) {\r\n    result.post('/message', {\r\n        data: {\r\n            user_id: 93,\r\n            content: 'Hello Mr. 93 !'\r\n        }\r\n    })\r\n    .done(function (response) {\r\n        //this will display the id of the message in the console\r\n        console.log(response.id);\r\n    })\r\n    .fail(function (err) {\r\n        //handle error with err\r\n    });\r\n})\r\n.fail(function (err) {\r\n    //handle error with err\r\n});\r\n```\r\n\r\n**PUT Request**\r\n\r\nTo make a PUT request, you have to call the `result.post` method like this :\r\n\r\n```javascript\r\n//Let's say the /profile endpoint on the provider waits for\r\n//a PUT request to update the authenticated user's profile \r\n//containing the field \"name\" and returns the field \"name\" \r\n//containing the new name\r\nOAuth.popup(provider)\r\n.done(function(result) {\r\n    result.put('/profile', {\r\n        data: {\r\n            name: \"John Williams Doe III\"\r\n        }\r\n    })\r\n    .done(function (response) {\r\n        //this will display the new name in the console\r\n        console.log(response.name);\r\n    })\r\n    .fail(function (err) {\r\n        //handle error with err\r\n    });\r\n})\r\n.fail(function (err) {\r\n    //handle error with err\r\n});\r\n```\r\n\r\n**PATCH Request**\r\n\r\nTo make a PATCH request, you have to call the `result.patch` method like this :\r\n\r\n```javascript\r\n//Let's say the /profile endpoint on the provider waits for\r\n//a PATCH request to update the authenticated user's profile \r\n//containing the field \"name\" and returns the field \"name\" \r\n//containing the new name\r\nOAuth.popup(provider)\r\n.done(function(result) {\r\n    result.patch('/profile', {\r\n        data: {\r\n            name: \"John Williams Doe III\"\r\n        }\r\n    })\r\n    .done(function (response) {\r\n        //this will display the new name in the console\r\n        console.log(response.name);\r\n    })\r\n    .fail(function (err) {\r\n        //handle error with err\r\n    });\r\n})\r\n.fail(function (err) {\r\n    //handle error with err\r\n});\r\n```\r\n\r\n**DELETE Request**\r\n\r\nTo make a DELETE request, you have to call the `result.del` method like this :\r\n\r\n```javascript\r\n//Let's say the /picture?id=picture_id endpoint on the provider waits for\r\n//a DELETE request to delete a picture with the id \"84\"\r\n//and returns true or false depending on the user's rights on the picture\r\nOAuth.popup(provider)\r\n.done(function(result) {\r\n    result.del('/picture?id=84')\r\n    .done(function (response) {\r\n        //this will display true if the user was authorized to delete\r\n        //the picture\r\n        console.log(response);\r\n    })\r\n    .fail(function (err) {\r\n        //handle error with err\r\n    });\r\n})\r\n.fail(function (err) {\r\n    //handle error with err\r\n});\r\n```\r\n\r\n**Me() Request**\r\n\r\nThe `me()` request is an OAuth.io feature that allows you, when the provider is supported, to retrieve a unified object describing the authenticated user. That can be very useful when you need to login a user via several providers, but don't want to handle a different response each time.\r\n\r\nTo use the `me()` feature, do like the following (the example works for Facebook, Github, Twitter and many other providers in this case) :\r\n\r\n```javascript\r\n//provider can be 'facebook', 'twitter', 'github', or any supported\r\n//provider that contain the fields 'firstname' and 'lastname' \r\n//or an equivalent (e.g. \"FirstName\" or \"first-name\")\r\nvar provider = 'facebook';\r\n\r\nOAuth.popup(provider)\r\n.done(function(result) {\r\n    result.me()\r\n    .done(function (response) {\r\n        console.log('Firstname: ', response.firstname);\r\n        console.log('Lastname: ', response.lastname);\r\n    })\r\n    .fail(function (err) {\r\n        //handle error with err\r\n    });\r\n})\r\n.fail(function (err) {\r\n    //handle error with err\r\n});\r\n```\r\n\r\n*Filtering the results*\r\n\r\nYou can filter the results of the `me()` method by passing an array of fields you need :\r\n\r\n```javascript\r\n//...\r\nresult.me(['firstname', 'lastname', 'email'/*, ...*/])\r\n//...\r\n```\r\n\r\n\r\nContributing\r\n============\r\n\r\n**Issues**\r\n\r\nFeel free to post issues if you have problems while using this SDK.\r\n\r\n**Pull requests**\r\n\r\nYou are welcome to fork and make pull requests. We appreciate the time you spend working on this project and we will be happy to review your code and merge it if it brings nice improvements :)\r\n\r\nIf you want to do a pull request, please mind these simple rules :\r\n\r\n- *One feature per pull request*\r\n- *Write lear commit messages*\r\n- *Unit test your feature* : if it's a bug fix for example, write a test that proves the bug exists and that your fix resolves it.\r\n- *Write a clear description of the pull request*\r\n\r\nIf you do so, we'll be able to merge your pull request more quickly :)\r\n\r\nTesting the SDK\r\n===============\r\n\r\nUnit Testing\r\n------------\r\n\r\nTo test the SDK, you first need to install the npm modules `jasmine-node` and `istanbul` (to get the tests coverage) :\r\n\r\n```sh\r\n$ sudo npm install -g jasmine-node@2.0.0 istanbul\r\n```\r\n\r\nThen you can run the testsuite from the SDK www directory :\r\n\r\n```sh\r\n$ jasmine-node --verbose tests/unit/spec\r\n```\r\n\r\nOnce you've installed `istanbul`, you can run the following command to get coverage information :\r\n\r\n```sh\r\n$ npm test\r\n```\r\n\r\nThe coverage report is generated in the `coverage` folder. You can have a nice HTML render of the report in `coverage/lcof-report/index.html`\r\n\r\nRunning the included samples\r\n------------------------\r\n\r\n**Create a new project as described in the [PhoneGap documentation](http://docs.phonegap.com/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface). For example:**\r\n\r\n```sh\r\n$ phonegap create oauthio-test com.example.oauthio-test OAuthioTest\r\n$ cd oauthio-test\r\n$ phonegap install android\r\n```\r\n\r\n**Install OAuth.io plugin into the project**\r\n\r\n```sh\r\n$ phonegap local plugin add https://github.com/oauth-io/oauth-phonegap\r\n```\r\n\r\n**Replace the generated example `index.html` with the one included in the example folder, and copy jquery.**\r\n\r\nA valid key is provided, but you can do your own app on [OAuth.io](https://oauth.io/). Also, please check that your `config.xml` file contains `<access origin=\"*\" />` or accept oauth.io and the provider's domain (e.g. graph.facebook.com).\r\n\r\n**Plug your phone & run it ! (or add --emulate)**\r\n\r\n```sh\r\n$ phonegap run android\r\n```\r\n\r\nLicense\r\n=======\r\n\r\nThis SDK is published under the Apache2 License.\r\n\r\n\r\n\r\nMore information in [oauth.io documentation](http://oauth.io/#/docs)\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oauth-io/oauth-phonegap.git"
+  },
+  "scripts": {
+    "test": "istanbul cover jasmine-node tests/unit/spec"
+  },
+  "version": "0.5.0"
+}

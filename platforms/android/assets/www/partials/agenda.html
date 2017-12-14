@@ -1,0 +1,62 @@
+<div flex="100" layout="column" class="agenda" ng-controller="CalendarCtrl" ng-if="user.medico.pk" >
+	<md-toolbar  class="md-accent" ng-if="!user.emailVerified" ng-click="user.emailVerified = true" ng-style="{'height':'30px', 'min-height':'30px'}">
+		<div class="md-toolbar-tools">
+			<md-icon>warning</md-icon>
+			<span flex class="md-caption" ng-style="{'text-align':'center', 'margin-left': '30px'}">Verifique seu email!</span>
+			<md-button class="md-primary" ng-click="sendEmail()" ng-style="{'font-size': '10px', 'padding-left':'0', 'padding-right':'0', 'min-width':'0'}">Reenviar</md-button>
+		</div>
+	</md-toolbar>
+	<md-toolbar flex="none" ng-style="{'background':'transparent'}" >
+        <div class="md-toolbar-tools" layout-align="space-between center">
+					<div layout="row" ng-style="{'width': '52px'}">
+						<md-button class="md-icon-button md-accent" aria-label="Settings" ng-click="showSideNav()">
+			        <md-icon style="font-size: 20px;">menu</md-icon>
+			      </md-button>
+					</div>
+					<div class="md-chips">
+						<md-chip md-swipe-right="reduceDay()" md-swipe-left="addDay()" class="md-whiteframe-5dp" ng-click="showRightSideNav(); carregarEventosMes();" ng-style="{'cursor':'pointer','background-color':'rgb(197,17,98)','margin': '0', 'padding-bottom': '0', 'padding-left': '5px', '-moz-user-select': 'none', '-webkit-user-select': 'none', '-ms-user-select':'none', 'user-select':'none','-o-user-select':'none'}" unselectable="on"
+ onselectstart="return false;"
+ onmousedown="return false;" ng-cloak>
+							<md-button id="googleSignInBT"  class="md-icon-button md-accent avatar-bt" aria-label="Settings" ng-style="{'height': '33px', 'min-height':'33px', 'padding-top': '3', 'margin-left': '0', 'margin-right': '0',
+    'padding-bottom': '3px', 'padding-left': '0', 'width': '33px'}">
+								 <img alt="Login com o google" ng-src="{{ user.img }}" class="avatar" ng-if="user.img"/>
+							</md-button>
+							{{mes}}
+							- R$ {{totalMes  | number : 2}}
+						</md-chip>
+					</div>
+					<span  ng-style="{'width': '52px'}"></span>
+        </div>
+    </md-toolbar>
+
+
+	<md-content flex="auto" id="calendarContent" layout="row" md-scroll-y ng-style="{'padding-left':'10px','padding-right':'10px'}">
+		<div flex="100" md-swipe-right="reduceDay()" md-swipe-left="addDay()" ui-calendar="uiConfig.calendar" calendar="meditaskCalendar" class="calendar" ng-model="eventSources" style="padding-top: 0; margin: 0;"></div>
+	</md-content>
+
+	<!-- <md-toolbar flex="nogrow"  class="md-hue-3 md-accent">
+	  <h2 class="md-toolbar-tools">
+	    <span></span>
+	  </h2>
+	</md-toolbar> -->
+
+</div>
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+		<md-content ng-controller="MonthsCtrl" ng-if="user.googleToken">
+	    <md-tabs md-selected="2" md-border-bottom md-autoselect md-swipe-content md-dynamic-height>
+	      <md-tab ng-repeat="year in years"
+	              label="{{year}}" md-on-select="carregarEventosMes(year)">
+					<md-progress-linear ng-if="carregandoEventos" md-mode="indeterminate"></md-progress-linear>
+	        <div class="demo-tab year{{$index%4}}" style="padding: 10px; text-align: center;">
+						<md-list ng-hide="carregandoEventos" ng-cloak>
+							<md-list-item ng-repeat="mes in meses" ng-click="gotoMonth($event, mes.desc, mes.ano); showRightSideNav()" class="noright">
+								<md-icon >check_circle</md-icon>
+								<p>{{mes.desc}}</p>
+								<span class="md-secondary">{{mes.valor | number : 2}}</span>
+							</md-list-item>
+						</md-list>
+	        </div>
+	      </md-tab>
+	    </md-tabs>
+	  </md-content>
+</md-sidenav>

@@ -1,0 +1,67 @@
+<div flex="100" layout="column" ng-controller="HospitaisCtrl" ng-if="user.medico.pk">
+  <md-toolbar flex="none" ng-style="{'background':'transparent'}" >
+        <div class="md-toolbar-tools">
+          <md-button class="md-icon-button md-accent" aria-label="Settings" ng-click="showSideNav()">
+            <md-icon style="font-size: 20px;">menu</md-icon>
+          </md-button>
+          <span ng-if="!selectedHospital.pk" flex>Lista de locais</span>
+          <span ng-if="selectedHospital.pk" flex>Editar plano</span>
+          <md-button class="md-icon-button md-accent" ng-if="selectedHospital.pk" aria-label="Settings" ng-click="select()">
+            <md-icon style="font-size: 20px;">list</md-icon>
+          </md-button>
+        </div>
+    </md-toolbar>
+    <md-content flex="auto" ng-cloak class="md-padding" layout="row" layout-align="center stretch" md-scroll-y  ng-if="selectedHospital.pk">
+        <form name="hospitalForm" class="hospitalForm" layout="column" ng-submit="salvarHospital(selectedHospital)">
+            <md-card class="padded" md-whiteframe="{{height}}" flex="100" layout="column"
+              ng-init="height = 3" ng-mouseenter="height = 6" ng-mouseleave="height = 3">
+                    <md-card-title ng-style="{'max-height':'100px'}">
+                      <md-card-title-text>
+                            <md-input-container  class="md-block">
+                                <input name="nome" ng-model="selectedHospital.nome" class="md-headline" md-maxlength="50" >
+                            </md-input-container>
+                      </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content layout="column" f>
+                        <div
+                            name="bairro"
+                            md-color-picker
+                            label="Cor de Ref."
+                            default="#f00"
+                            multiple="true"
+                            md-color-spectrum="false"
+                            md-color-generic-palette="false"
+                            md-color-material-palette="true"
+                            md-color-sliders="false"
+                            md-color-history="false"
+                            md-color-alpha-channel="false"
+                            md-color-hsl="false"
+                            md-color-rgb="false"
+                            ng-model="selectedHospital.cor" required  ng-change="atualizarCorTexto(selectedHospital)"
+                        ></div>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center" ng-if="hospitalForm.$dirty">
+                      <md-button class="md-primary md-raised" ng-disabled="hospitalForm.$invalid" ng-click="salvarHospital(selectedHospital)" >Salvar</md-button>
+                       <md-button class="md-warn  md-raised" ng-click="cancelar()">Cancelar</md-button>
+                    </md-card-actions>
+                    <md-card-actions layout="row" layout-align="end center" ng-if="!hospitalForm.$dirty">
+                       <md-button class="md-warn  md-raised" ng-click="excluirHospital(selectedHospital)">Excluir</md-button>
+                    </md-card-actions>
+            </md-card>
+        </form>
+    </md-content>
+    <md-content flex="auto" ng-cloak class="md-padding" layout="row"  layout-align="start start" layout-wrap  md-scroll-y  ng-if="!selectedHospital.pk">
+        <div flex-xs="100" flex-gt-xs="50" flex-gt-sm="25" layout="column" ng-repeat="hospital in hospitais">
+            <md-card ng-click="select(hospital);" style="cursor: pointer;"  ng-style="{'background-color': hospital.cor, 'color': hospital.text_color}">
+                <md-card-header style="padding-bottom: 5px;min-height: 30px;">
+                    <md-card-header-text>
+                        <h4>{{hospital.nome | limitTo:25}}</h4>
+                    </md-card-header-text>
+                </md-card-header>
+            </md-card>
+        </div>
+    </md-content>
+    <md-button  ng-if="!selectedHospital.pk" class="md-fab md-fab-bottom-right md-accent md-hue-3 docs-scroll-fab" docs-scroll-class="scrolling" aria-label="Eat cake" ng-click="goto('novoHospital')">
+      <md-icon><i class="material-icons">add</i></md-icon>
+    </md-button>
+</div>

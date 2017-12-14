@@ -1,0 +1,65 @@
+<div flex="100" layout="column" ng-controller="DashboardCtrl" ng-if="user.googleToken">
+    <div flex="100" layout="column">
+      <md-toolbar flex="none" ng-style="{'background':'transparent'}" >
+           <div class="md-toolbar-tools" layout-align="space-between center">
+   					<div layout="row" ng-style="{'width': '52px'}">
+               <md-button class="md-icon-button md-accent" aria-label="Settings" ng-click="showSideNav()">
+                 <md-icon style="font-size: 20px;">menu</md-icon>
+               </md-button>
+   					</div>
+             <div class="md-chips">
+   						<md-chip md-swipe-right="reduceDay()" md-swipe-left="addDay()" class="md-whiteframe-5dp" ng-click="showRightSideNav()" ng-style="{'cursor':'pointer','background-color':'rgb(197,17,98)','margin': '0', 'padding-bottom': '0', 'padding-left': '5px', '-moz-user-select': 'none', '-webkit-user-select': 'none', '-ms-user-select':'none', 'user-select':'none','-o-user-select':'none'}" unselectable="on"
+    onselectstart="return false;"
+    onmousedown="return false;">
+   							<md-button id="googleSignInBT"  class="md-icon-button md-accent avatar-bt" aria-label="Settings" ng-style="{'height': '33px', 'min-height':'33px', 'padding-top': '3', 'margin-left': '0', 'margin-right': '0',
+       'padding-bottom': '3px', 'padding-left': '0', 'width': '33px'}">
+   								 <img alt="Login com o google" ng-src="{{ user.img }}" class="avatar" />
+   							</md-button>
+   							{{filter.ano}}
+   							- {{filter.tipo.nome}} <md-icon>youtube_searched_for</md-icon>
+   						</md-chip>
+   					</div>
+           </div>
+       </md-toolbar>
+        <md-progress-linear ng-if="carregandoAtividadesPlanos" md-mode="indeterminate"></md-progress-linear>
+        <md-content id="chart-content" flex="auto" layout-xs="column" layout-gt-xs="row" layout-align-xs="start start" layout-align-gt-xs="center stretch" layout-padding md-scroll-x>
+             <div flex-xs flex-gt-xs="80" layout="column">
+                <md-progress-linear md-mode="indeterminate" ng-hide="!carregandoDados"></md-progress-linear>
+                <canvas  style="min-width: 500px" flex id="myChart" ng-init="carregarGrafico()" ng-if="valores.length"></canvas>
+             </div>
+        </md-content>
+
+    </div>
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+    		<md-content>
+          <md-tabs md-selected="2" md-border-bottom md-autoselect md-swipe-content md-dynamic-height>
+    	      <md-tab ng-repeat="year in years"
+    	              label="{{year}}">
+    	        <div class="demo-tab year{{$index%4}}" style="padding: 10px; text-align: center;">
+                 <md-select ng-model="filter.tipo" placeholder="Selecione uma atividade"  >
+                   <md-option ng-value="null">TODAS</md-option>
+                   <md-option ng-repeat="atividade in atividades" ng-value="atividade">{{atividade.nome}}</md-option>
+                 </md-select>
+                <div ng-if="filter.tipo != null">
+                  <md-select ng-model="filter.hospital" placeholder="Selecione um local" ng-init="carregarHospitais()">
+                    <md-option ng-value="null">TODOS</md-option>
+                    <md-option ng-repeat="hospital in hospitais" ng-value="hospital">{{hospital.nome}}</md-option>
+                  </md-select>
+                  <md-select ng-model="filter.plano" placeholder="Selecione um plano" ng-if="filter.tipo.plano_paga" ng-init="carregarPlanos()">
+                    <md-option ng-value="null">TODOS</md-option>
+                    <md-option ng-repeat="plano in planos" ng-value="plano">{{plano.nome}}</md-option>
+                  </md-select>
+                  <md-select ng-model="filter.procedimento" ng-if="filter.tipo.is_procedimento" placeholder="Selecione um procedimento" ng-init="carregarProcedimentos()">
+                    <md-option ng-value="null">TODOS</md-option>
+                    <md-option ng-repeat="procedimento in procedimentos" ng-value="procedimento">{{procedimento.nome}}</md-option>
+                  </md-select>
+                </div>
+                <md-button class="md-fab" aria-label="Eat cake" ng-click="carregarEventos(); showRightSideNav()">
+                    <md-icon>youtube_searched_for</md-icon>
+                </md-button>
+    	        </div>
+    	      </md-tab>
+    	    </md-tabs>
+    	  </md-content>
+    </md-sidenav>
+</div>
