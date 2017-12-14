@@ -63,32 +63,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "com.oauthio.plugins.oauthio": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/oauth-io/oauth-phonegap"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-googleplus": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-googleplus@^5.1.1"
-    },
-    "is_top_level": true,
-    "variables": {
-      "REVERSED_CLIENT_ID": "com.optiapps.meditask"
-    }
-  },
-  "code-push": {
-    "source": {
-      "type": "registry",
-      "id": "code-push@2.0.4"
-    },
-    "is_top_level": false,
-    "variables": {}
-  },
   "cordova-plugin-zip": {
     "source": {
       "type": "registry",
