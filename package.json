@@ -16,17 +16,10 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-compat": {},
-      "cordova-plugin-vibration": {},
-      "cordova-plugin-file-transfer": {},
-      "cordova-plugin-file": {},
-      "com.oauthio.plugins.oauthio": {},
-      "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.optiapps.meditask"
-      }
+      "cordova-plugin-vibration": {}
     }
   },
   "dependencies": {
-    "com.oauthio.plugins.oauthio": "https://github.com/oauth-io/oauth-phonegap",
     "cordova-android": "^6.3.0",
     "cordova-browser": "^5.0.1",
     "cordova-custom-config": "^4.0.2",
@@ -35,13 +28,10 @@
     "cordova-plugin-console": "~1.0.7",
     "cordova-plugin-device": "~1.1.6",
     "cordova-plugin-dialogs": "~1.2.0",
-    "cordova-plugin-file": "^5.0.0",
-    "cordova-plugin-file-transfer": "^1.7.0",
     "cordova-plugin-googleplus": "^5.1.1",
     "cordova-plugin-inappbrowser": "~1.3.0",
     "cordova-plugin-network-information": "~1.2.1",
     "cordova-plugin-vibration": "~2.1.0",
-    "cordova-plugin-whitelist": "~1.3.2",
-    "oauth-phonegap": "git+https://github.com/oauth-io/oauth-phonegap.git"
+    "cordova-plugin-whitelist": "~1.3.2"
   }
 }

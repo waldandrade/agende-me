@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "com.oauthio.plugins.oauthio": {
-      "PACKAGE_NAME": "com.optiapps.meditask"
-    },
     "cordova-plugin-compat": {
       "PACKAGE_NAME": "com.optiapps.meditask"
     },
@@ -20,12 +17,6 @@
       "PACKAGE_NAME": "com.optiapps.meditask"
     },
     "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "com.optiapps.meditask"
-    },
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.optiapps.meditask"
-    },
-    "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "com.optiapps.meditask"
     },
     "cordova-plugin-googleplus": {
